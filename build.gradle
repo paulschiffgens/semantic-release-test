@@ -2,10 +2,11 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     id 'de.gliderpilot.semantic-release' version '1.4.0'
-    id "com.jfrog.bintray" version "1.8.4"
+    //id "com.jfrog.bintray" version "1.8.4"
 }
 
 apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'de.gliderpilot.semantic-release'
 
@@ -27,9 +28,17 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+
+    maven {
+        url "https://dl.bintray.com/paulschiffgens/semantic-release-test"
+        credentials {
+            username = System.getenv('BINTRAY_USER')
+            password = System.getenv('BINTRAY_KEY')
+        }
+    }
 }
 
-
+/*
 bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
@@ -43,9 +52,7 @@ bintray {
         vcsUrl = 'https://github.com/paulschiffgens/semantic-release-test.git'
     }
 }
-
-
-project.ext.ghToken = System.getenv('GH_TOKEN')
+*/
 
 task sourcesJar(type: Jar) {
     classifier = 'sources'
@@ -53,7 +60,7 @@ task sourcesJar(type: Jar) {
 }
 
 semanticRelease {
-    repo.ghToken = project.ext.ghToken
+    repo.ghToken = System.getenv('GH_TOKEN')
 
     repo {
         releaseAsset jar
@@ -65,7 +72,9 @@ semanticRelease {
 
 }
 
+/*
 if (!version.toString().endsWith('-SNAPSHOT'))
     publish.dependsOn bintrayUpload
 else 
     publish.dependsOn publishToMavenLocal
+*/

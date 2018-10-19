@@ -5,4 +5,8 @@ class Library {
     boolean someLibraryMethod() {
         return true;
     }
+
+    void helloWorld() {
+        System.out.println("HelloWorld");
+    }
 }
