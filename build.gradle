@@ -6,6 +6,7 @@ plugins {
 }
 
 apply plugin: 'java'
+apply plugin: 'maven-publish'
 apply plugin: 'de.gliderpilot.semantic-release'
 
 group = 'de.paulschiffgens'
@@ -28,6 +29,7 @@ repositories {
     jcenter()
 }
 
+
 bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
@@ -42,15 +44,28 @@ bintray {
     }
 }
 
-project.ext.ghToken = System.getenv('GH_TOKEN')
 
-semanticRelease {
-    repo.ghToken = project.ext.ghToken
-}
+project.ext.ghToken = System.getenv('GH_TOKEN')
 
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
 
-// publish.dependsOn bintrayUpload
+semanticRelease {
+    repo.ghToken = project.ext.ghToken
+
+    repo {
+        releaseAsset jar
+        // optionally set name, label and/or contentType
+        releaseAsset sourcesJar, name: "the-sources.jar", label: 'the sources jar', contentType: 'application/zip'
+        // or
+        // releaseAsset sourcesJar name "the-sources.jar" label "the sources jar" contentType "application/zip"
+    }
+
+}
+
+if (!version.toString().endsWith('-SNAPSHOT'))
+    publish.dependsOn bintrayUpload
+else 
+    publish.dependsOn publishToMavenLocal
