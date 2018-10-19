@@ -9,4 +9,8 @@ class Library {
     void helloWorld() {
         System.out.println("HelloWorld");
     }
+
+    void helloWorld2() {
+        System.out.println("HelloWorld2");
+    }
 }
