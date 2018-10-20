@@ -18,4 +18,8 @@ class Library {
     void helloWorld4() {
         System.out.println("Hello World 4");
     }
+
+    void helloWorld5() {
+        System.out.println("Hello World 5");
+    }
 }
