@@ -3,8 +3,8 @@ class Library {
         return true;
     }
 
-    void helloWorld() {
-        System.out.println("Hello World");
+    void helloWorld1() {
+        System.out.println("Hello World 1");
     }
 
     void helloWorld2() {
