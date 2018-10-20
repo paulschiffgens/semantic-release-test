@@ -10,7 +10,7 @@ branches:
   except:
   - /^v\d+\.\d+\.\d+$/
 before_install:
-- git fetch --unshallow
+- git fetch
 - git config user.email "paul.schiffgens@maibornwolff.de"
 - git config user.name "paulschiffgens"
 - git config url.https://.insteadOf git://
