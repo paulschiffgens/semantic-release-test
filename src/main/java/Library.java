@@ -22,8 +22,4 @@ class Library {
     void helloWorld5() {
         System.out.println("Hello World 5");
     }
-
-    void helloWorld6() {
-        System.out.println("Hello World 6");
-    }
 }
