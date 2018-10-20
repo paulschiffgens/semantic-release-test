@@ -1,5 +1,4 @@
 plugins {
-    // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     id 'de.gliderpilot.semantic-release' version '1.4.0'
     id "com.jfrog.bintray" version "1.8.4"
@@ -13,35 +12,14 @@ apply plugin: 'de.gliderpilot.semantic-release'
 group = 'de.paulschiffgens'
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:23.0'
-
-    // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
 
-// In this section you declare where to find the dependencies of your project
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
-
-publishing {
-    repositories {
-        maven {
-            url "https://dl.bintray.com/paulschiffgens/semantic-release-test"
-            credentials {
-                username = System.getenv('BINTRAY_USER')
-                password = System.getenv('BINTRAY_KEY')
-            }
-        }
-    }
-}
-
 
 bintray {
     user = System.getenv('BINTRAY_USER')
@@ -57,7 +35,6 @@ bintray {
     }
 }
 
-
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
@@ -68,10 +45,9 @@ semanticRelease {
 
     repo {
         releaseAsset jar
+
         // optionally set name, label and/or contentType
         releaseAsset sourcesJar, name: "the-sources.jar", label: 'the sources jar', contentType: 'application/zip'
-        // or
-        // releaseAsset sourcesJar name "the-sources.jar" label "the sources jar" contentType "application/zip"
     }
 }
 
