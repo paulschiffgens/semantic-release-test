@@ -75,7 +75,8 @@ semanticRelease {
     }
 }
 
-publish.dependsOn bintrayUpload
+if (!version.toString().endsWith('-SNAPSHOT'))
+    publish.dependsOn bintrayUpload
 
 /*
 if (!version.toString().endsWith('-SNAPSHOT'))
