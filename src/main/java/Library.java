@@ -14,4 +14,8 @@ class Library {
     void helloWorld3() {
         System.out.println("Hello World 3");
     }
+
+    void helloWorld4() {
+        System.out.println("Hello World 4");
+    }
 }
