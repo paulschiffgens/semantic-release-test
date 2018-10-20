@@ -3,6 +3,10 @@ class Library {
         return true;
     }
 
+    void helloWorld0() {
+        System.out.println("Hello World 0");
+    }
+
     void helloWorld1() {
         System.out.println("Hello World 1");
     }
