@@ -4,7 +4,7 @@ addons:
     packages:
     - git
 language: java
-jdk: oraclejdk7
+jdk: oraclejdk8
 env: TERM=dumb
 branches:
   except:
@@ -15,6 +15,7 @@ before_install:
 - git config user.name "paulschiffgens"
 - git config url.https://.insteadOf git://
 - git checkout -qf $TRAVIS_BRANCH
+- chmod +x gradlew
 install:
 - echo "skip default gradlew assemble"
 script:
