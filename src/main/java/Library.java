@@ -13,4 +13,8 @@ class Library {
     void helloWorld2() {
         System.out.println("HelloWorld2");
     }
+
+    void helloWorld3() {
+        System.out.println("HelloWorld3");
+    }
 }
