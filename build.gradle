@@ -77,10 +77,3 @@ semanticRelease {
 
 if (!version.toString().endsWith('-SNAPSHOT'))
     publish.dependsOn bintrayUpload
-
-/*
-if (!version.toString().endsWith('-SNAPSHOT'))
-    publish.dependsOn bintrayUpload
-else 
-    publish.dependsOn publishToMavenLocal
-*/
