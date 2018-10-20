@@ -14,8 +14,6 @@ before_install:
 - git config user.name "paulschiffgens"
 - git config url.https://.insteadOf git://
 - git checkout -qf $TRAVIS_BRANCH
-- chmod +x gradlew
-- git status
 install:
 - echo "skip default gradlew assemble"
 script:
