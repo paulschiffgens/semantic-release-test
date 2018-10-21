@@ -7,6 +7,3 @@
  * in the user guide at https://docs.gradle.org/4.10.2/userguide/multi_project_builds.html
  */
 
-rootProject.name = 'semantic-release-test'
-include 'module-a'
-include 'module-b'

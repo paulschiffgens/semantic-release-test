@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-a.iml" filepath="$PROJECT_DIR$/.idea/modules/module-a.iml" group="module-a" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-a/module-a_main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-a/module-a_main.iml" group="module-a" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-a/module-a_test.iml" filepath="$PROJECT_DIR$/.idea/modules/module-a/module-a_test.iml" group="module-a" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-b/module-b.iml" filepath="$PROJECT_DIR$/.idea/modules/module-b/module-b.iml" group="module-b" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-b/module-b_main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-b/module-b_main.iml" group="module-b" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-b/module-b_test.iml" filepath="$PROJECT_DIR$/.idea/modules/module-b/module-b_test.iml" group="module-b" />
       <module fileurl="file://$PROJECT_DIR$/semantic-release-test.iml" filepath="$PROJECT_DIR$/semantic-release-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/semantic-release-test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/semantic-release-test_main.iml" group="semantic-release-test" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/semantic-release-test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/semantic-release-test_test.iml" group="semantic-release-test" />
