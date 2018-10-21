@@ -47,3 +47,6 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
+
+if (!version.toString().endsWith('-SNAPSHOT'))
+    publish.dependsOn bintrayUpload
