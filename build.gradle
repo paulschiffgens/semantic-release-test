@@ -28,18 +28,24 @@ allprojects {
     
 }
 
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
+task sourcesJarModuleA(type: Jar) {
+    classifier = 'sources-a'
+    from getRootProject().subprojects.findAll{it.name == 'module-a'}.sourceSets.main.output
+}
+
+task sourcesJarModuleB(type: Jar) {
+    classifier = 'sources-b'
+    from getRootProject().subprojects.findAll{it.name == 'module-b'}.sourceSets.main.output
 }
 
 semanticRelease {
     repo.ghToken = System.getenv('GH_TOKEN')
 
     repo {
-        releaseAsset jar
+        // releaseAsset jar
 
         // optionally set name, label and/or contentType
-        // releaseAsset sourcesJar, name: "the-sources.jar", label: 'the sources jar', contentType: 'application/zip'
+        releaseAsset sourcesJarModuleA
+        releaseAsset sourcesJarModuleB
     }
 }
