@@ -24,21 +24,7 @@ repositories {
 allprojects {
     apply plugin: 'java'
     
-
-}
-
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-
-    configurations = ['archives']
-    pkg {
-        repo = 'semantic-release-test'
-        name = 'semantic-release-test'
-        userOrg = 'paulschiffgens'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/paulschiffgens/semantic-release-test.git'
-    }
+    
 }
 
 task sourcesJar(type: Jar) {
@@ -53,9 +39,6 @@ semanticRelease {
         releaseAsset jar
 
         // optionally set name, label and/or contentType
-        releaseAsset sourcesJar, name: "the-sources.jar", label: 'the sources jar', contentType: 'application/zip'
+        // releaseAsset sourcesJar, name: "the-sources.jar", label: 'the sources jar', contentType: 'application/zip'
     }
 }
-
-if (!version.toString().endsWith('-SNAPSHOT'))
-    publish.dependsOn bintrayUpload
